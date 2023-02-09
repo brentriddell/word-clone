@@ -6,22 +6,17 @@ function GuessInput() {
   function handleSubmit(event) {
     event.preventDefault();
 
-    if (guess.length !== 5) {
-      window.alert("Please enter exactly 5 characters. ❤️");
-      return;
-    }
-
     console.log({ guess });
     setGuess("");
   }
 
   return (
     <form onSubmit={handleSubmit} className="guess-input-wrapper">
-      <label htmlFor="guess-input">Enter guess:</label>
+      <label htmlFor="guess-input">Enter guess dude:</label>
       <input
         required
-        minLength={5}
-        maxLength={5}
+        pattern="[a-zA-Z]{5}"
+        title="5 letter word"
         value={guess}
         onChange={(event) => {
           const nextGuess = event.target.value.toUpperCase();
